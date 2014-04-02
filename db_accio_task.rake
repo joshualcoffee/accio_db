@@ -9,8 +9,8 @@ namespace :db do
     end
     #capture newest version of the app database
     puts "capturing database"
-    `heroku pgbackups:capture --expire --app #{app}`
-    url = `heroku pgbackups:url --app #{app}`
+    Bundler.with_clean_env {`heroku pgbackups:capture --expire --app #{app}`}
+    url = Bundler.with_clean_env {`heroku pgbackups:url --app #{app}`}
     puts "getting database #{url}"
 
     name = "#{Rails.root}/db/#{Time.now.to_i}.dump"
