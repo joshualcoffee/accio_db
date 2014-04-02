@@ -1,7 +1,7 @@
 namespace :db do
   desc "Retrieve Database via Heroku CLI"
 
-  task :import => :environment do
+  task :accio => :environment do
     app = ENV['app']
     if app.blank?
       abort( "You did not specify the correct heroku app, please specify a heroku app"+ "\n" + "EXAMPLE: foreman run rake db:import app=<APP>" )
